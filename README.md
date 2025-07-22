@@ -46,7 +46,7 @@ lib/
 🚀 **Features**:
 Fetches a list of exercises from local JSON or API
 Shows exercise name, duration, difficulty, and description
-Detail screen with redesigned UI using Card layout
+Detail screen with designed UI using Card layout
 Exercise timer screen to track progress
 Completion tracking using SharedPreferences
 BLoC used for state management
