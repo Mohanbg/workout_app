@@ -5,28 +5,42 @@ This is a simple workout Flutter application built using Clean Architecture and 
 ```text
 lib/
 ├── core/
+│   ├── service/
+│   │   └── service_locator.dart         # Dependency injection setup
 │   └── utilities/
-│       ├── app_routes.dart         # Defines app route constants
-│       └── navigation_service.dart # Manages app-wide navigation
+│       ├── app_routes.dart              # Route definitions
+│       └── navigation_service.dart      # Navigation logic using service locator
 │
 ├── features/
-│   ├── domain/
-│   │   └── entities/
-│   │       └── exercise.dart       # Exercise data model
-│   │
-│   ├── data/                       # Optional: for future data sources
+│   └── data/
+│       ├── model/
+│       │   └── exercise_model.dart      # Data model for exercises
+│       ├── repository_implementation/
+│       │   └── exercise_repository_impl.dart  # Repository implementation (fetching logic)
+│
+│   └── domain/
+│       ├── entities/
+│       │   └── exercise.dart            # Entity definition for clean architecture
+│       └── repository/
+│           └── exercise_repository.dart # Abstract repository definition
+│
 │   └── presentation/
 │       └── exercise/
-│           ├── bloc/               # Contains ExerciseBloc, events, and states
+│           ├── bloc/
 │           │   ├── exercise_bloc.dart
 │           │   ├── exercise_event.dart
-│           │   └── exercise_state.dart
-│           └── screen/
-│               ├── exercise_home_screen.dart
-│               ├── exercise_detail_screen.dart
-│               └── exercise_timer_screen.dart
+│           │   └── exercise_state.dart  # BLoC pattern for state management
+│           ├── cubit/
+│           │   └── timer_cubit.dart     # Timer state management
+│           ├── screen/
+│           │   ├── exercise_detail_screen.dart
+│           │   ├── exercise_home_screen.dart
+│           │   └── exercise_timer_screen.dart  # UI screens
+│           └── widgets/
+│               └── exercise_card.dart   # Custom exercise card widget
 │
-└── main.dart                    # App entry point and MultiBlocProvider setup
+├── main.dart                            # App entry point and MultiBlocProvider setup
+
 ```
 
 🚀 **Features**:
